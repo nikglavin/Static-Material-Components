@@ -4,6 +4,7 @@ $button-text-weight: 500;
 $button-tracking: tracking(10);
 
 %button-core {
+  position: relative;
   outline: 0;
   border: 0;
   background-color: $button-color;
@@ -42,6 +43,7 @@ $button-tracking: tracking(10);
   min-width: grid-unit(8);
   line-height: grid-unit(4.5);
   box-shadow: paper(1);
+  overflow: hidden;
 
   + .button {
     margin-left: 8px;
@@ -62,6 +64,33 @@ $button-tracking: tracking(10);
   &:active {
     box-shadow: none;
   }
+}
+
+.button__focus {
+    display: none;
+
+    :focus & {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        border-radius: 50%;
+        padding-top: 140%;
+        background-color: rgba(255, 255, 255, .33);
+        animation: focus 3s infinite;
+    }
+}
+
+@keyframes focus {
+    0%,
+    100% {
+        transform: translateY(-33%) scale(.85);
+    }
+    50% {
+        transform: translateY(-33%) scale(.9)
+    }
 }
 
 .button-fab {
