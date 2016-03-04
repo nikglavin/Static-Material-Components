@@ -1,0 +1,82 @@
+$button-color: color(primary);
+$button-text-color: rgba(255, 255, 255, .87);
+$button-text-weight: 500;
+$button-tracking: tracking(10);
+
+%button-core {
+  outline: 0;
+  border: 0;
+  background-color: $button-color;
+  padding-top: 0;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 14px;
+  font-weight: $button-text-weight;
+  letter-spacing: $button-tracking;
+  color: $button-text-color;
+  transition:
+    box-shadow .2s $transition-timing,
+    background-color .2s $transition-timing,
+    color .2s $transition-timing;
+
+  &:focus {
+    background-color: mix(#000, $button-color, 12%);
+  }
+
+  &:hover {
+    box-shadow: paper(2);
+  }
+
+  &:active {
+    box-shadow: paper(3);
+  }
+}
+
+.button {
+  @extend %button-core;
+  display: inline-block;
+  border-radius: 2px;
+  padding-right: grid-unit(2);
+  padding-left: grid-unit(2);
+  min-width: grid-unit(8);
+  line-height: grid-unit(4.5);
+  box-shadow: paper(1);
+
+  + .button {
+    margin-left: 8px;
+  }
+}
+
+.button--flat {
+  box-shadow: none;
+  background-color: transparent;
+  color: $button-color;
+  transition: none;
+
+  &:focus {
+    background-color: rgba(0, 0, 0, .12);
+  }
+
+  &:hover,
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.button-fab {
+  @extend %button-core;
+  display: block;
+  position: absolute;
+  box-shadow: paper(1);
+  border-radius: 50%;
+  background-color: $button-color;
+  width: 56px;
+  text-align: center;
+  line-height: 56px;
+  color: $button-text-color; //Fix this color
+
+  i {
+    line-height: inherit;
+  }
+}

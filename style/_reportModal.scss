@@ -1,0 +1,34 @@
+.reportModal {
+	text-align: center;
+}
+
+.reportModal__image {
+	margin-top: grid-unit(2);
+	margin-bottom: grid-unit(2);
+	padding-right: grid-unit(6);
+	padding-left: grid-unit(6);
+	opacity: 1;
+	// transition: opacity 200ms
+}
+
+.reportModal__description {
+	position: relative;
+	min-height: 72px;
+
+	> * {
+		position: absolute;
+	}
+}
+
+.reportModal__header {
+	position: relative;
+}
+
+.reportModal__runningReport,
+.reportModal__success {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	opacity: 0;
+}

@@ -1,0 +1,151 @@
+// Common properties
+// Below are some simple extends for shared properties to keep the output as terse and try as possible.
+
+$tracking-5: tracking(5);
+$tracking-10: tracking(10);
+$tracking-20: tracking(20);
+
+%regular-weight {
+  font-weight: 400;
+}
+
+%medium-weight {
+  font-weight: 500;
+}
+
+%color-54 {
+  color: rgba(0, 0, 0, .54);
+
+  &.type--light {
+    color: rgba(255, 255, 255, .54);
+  }
+}
+
+%color-87 {
+  color: rgba(0, 0, 0, .87);
+
+  &.type--light {
+    color: rgba(255, 255, 255, .87);
+  }
+}
+
+
+// Margins settings for type modifiers
+// This aims to known combinations of type modifiers
+
+[class^="type--"] {
+  margin-top: .75em;
+  margin-bottom: .5em;
+}
+
+
+// Display type modifiers
+// Extra large text used for call out or feature text. 4 being the largest text and 1 being the smallest
+// it is recommended that these modifiers be used on a h1 tag.
+
+.type--display-4 {
+  @extend %color-54;
+  font-size: 112px;
+  font-weight: 300;
+  line-height: 124px;
+  letter-spacing: -$tracking-10;
+}
+
+.type--display-3 {
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -$tracking-5;
+}
+
+.type--display-2 {
+  font-size: 45px;
+  line-height: 48px;
+}
+
+.type--display-1 {
+  font-size: 34px;
+  line-height: 40px;
+}
+
+.type--display-3,
+.type--display-2,
+.type--display-1 {
+  @extend %regular-weight;
+}
+
+.type--display-4,
+.type--display-3,
+.type--display-2,
+.type--display-1 {
+  @extend %color-54;
+}
+
+// Heading modifiers
+// This style guide contains heading styles for <h1-4>
+
+.type--headline {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.type--title {
+    @extend %medium-weight;
+	font-size: 20px;
+    letter-spacing: $tracking-5;
+}
+
+.type--subheading-2 {
+  line-height: 28px;
+}
+
+.type--subheading-1 {
+  line-height: 24px;
+}
+
+.type--subheading-1,
+.type--subheading-2 {
+  font-size: 15px;
+  letter-spacing: $tracking-10;
+}
+
+.type--headline,
+.type--subheading-2,
+.type--subheading-1 {
+  @extend %regular-weight;
+}
+
+.type--headline,
+.type--title,
+.type--subheading-2,
+.type--subheading-1 {
+  @extend %color-87;
+}
+
+
+// Paragraph modifiers
+// These class modify type to be used as body copy
+
+.type--body-2 {
+  @extend %medium-weight;
+  line-height: 24px;
+}
+
+.type--body-1 {
+  @extend %regular-weight;
+  line-height: 20px;
+}
+
+.type--body-2,
+.type--body-1 {
+  @extend %color-87;
+  font-size: 13px;
+  letter-spacing: $tracking-10;
+}
+
+.type--caption {
+  @extend %regular-weight;
+  @extend %color-54;
+  font-size: 12px;
+  letter-spacing: $tracking-20;
+}
+
