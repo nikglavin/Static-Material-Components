@@ -1,10 +1,26 @@
+// Core button styles
+//
+// Shared accross default button and floating action buttons
+//
+// TODO: Add JS Ripple on click
+// TODO: Refactor to allow color modifiers based on material design color guidlines
+// TODO: Improve quality of paper shadow
+$button-border-radius: 2px;
 $button-color: color(primary);
 $button-text-color: rgba(255, 255, 255, .87);
 $button-text-weight: 500;
 $button-tracking: tracking(10);
 
+$button-shadow-1: paper(1);
+$button-shadow-2: paper(2);
+$button-shadow-3: paper(3);
+
+$button-easing: $transition-timing;
+
+
 %button-core {
   position: relative;
+  z-index: 2;
   outline: 0;
   border: 0;
   background-color: $button-color;
@@ -17,32 +33,42 @@ $button-tracking: tracking(10);
   letter-spacing: $button-tracking;
   color: $button-text-color;
   transition:
-    box-shadow .2s $transition-timing,
-    background-color .2s $transition-timing,
-    color .2s $transition-timing;
+    box-shadow .2s $button-easing,
+    background-color .2s $button-easing,
+    color .2s $button-easing;
 
   &:focus {
     background-color: mix(#000, $button-color, 12%);
   }
 
   &:hover {
-    box-shadow: paper(2);
+    box-shadow: $button-shadow-2;
   }
 
   &:active {
-    box-shadow: paper(3);
+    box-shadow: $button-shadow-3;
   }
 }
+
+
+// Raised Button
+//
+// A typically rectangular material button that lifts and displays ink reactions on press.
+//
+// .button--flat - A button made of ink that displays ink reactions on press but does not lift.
+//
+// Markup:
+// <a class="button {$modfiers}" />Button text<span class="button__focus"></span></a>
 
 .button {
   @extend %button-core;
   display: inline-block;
-  border-radius: 2px;
+  border-radius: $button-border-radius;
   padding-right: grid-unit(2);
   padding-left: grid-unit(2);
   min-width: grid-unit(8);
   line-height: grid-unit(4.5);
-  box-shadow: paper(1);
+  box-shadow: $button-shadow-1;
   overflow: hidden;
 
   + .button {
@@ -67,45 +93,66 @@ $button-tracking: tracking(10);
 }
 
 .button__focus {
-    display: none;
+  display: none;
 
-    :focus & {
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        margin: auto;
-        border-radius: 50%;
-        padding-top: 140%;
-        background-color: rgba(255, 255, 255, .33);
-        animation: focus 3s infinite;
-    }
+  :focus & {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 50%;
+    padding-top: 140%;
+    background-color: rgba(255, 255, 255, .12);
+    animation: focus 3s infinite;
+  }
+
+  .button--flat:focus & {
+     background-color: rgba(255, 255, 255, .24);
+  }
 }
 
 @keyframes focus {
-    0%,
-    100% {
-        transform: translateY(-33%) scale(.85);
-    }
-    50% {
-        transform: translateY(-33%) scale(.9)
-    }
+  0%,
+  100% {
+    transform: translateY(-33%) scale(.8);
+  }
+  50% {
+    transform: translateY(-33%) scale(.9)
+  }
 }
+
+
+// Floating Action Button
+//
+// Circular button used for a promoted action.
+//
+// .button-fab--mini - small size
+//
+// Markup:
+// <a class="button-fab {$modfiers}" />Button text</a>
 
 .button-fab {
   @extend %button-core;
   display: block;
   position: absolute;
-  box-shadow: paper(1);
+  margin: grid-unit(2);
+  box-shadow: $button-shadow-1;
   border-radius: 50%;
   background-color: $button-color;
   width: 56px;
   text-align: center;
   line-height: 56px;
-  color: $button-text-color; //Fix this color
+  color: $button-text-color;
 
   i {
     line-height: inherit;
   }
+}
+
+.button-fab--mini {
+  width: 40px;
+  line-height: 40px;
 }
