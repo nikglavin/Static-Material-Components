@@ -1,37 +1,119 @@
+// Cards
+//
+// TODO: Create color map for shades
+// TODO: Create type--body-3 ? With tighter line height and move styles from card-avatar there .
+
+$card-resting: paper(1);
+$card-raised: paper(2);
+
 .card {
 	position: relative;
+	overflow: hidden;
 	margin: grid-unit(1);
+	box-shadow: $card-resting;
 	border-radius: 2px;
-	background-color: rebeccapurple;
-	padding-top: 56.25%; // 16:9
+	border: 1px solid #ccc;
+
 
 	&:first-of-type { margin-top: 0; }
 }
 
-.card__title {
-	position: absolute;
-	bottom: 0;
-	border-bottom-right-radius: 2px;
-	border-bottom-left-radius: 2px;
-	background-color: rgba(0,0,0, .55);
-	padding: grid-unit(2);
-	padding-right: grid-unit(1);
-	width: 100%;
-	height: grid-unit(8.5);
-	font-size: 16px;
-	font-weight: 500;
-	color: #fff;
 
-	&Meta {
-		font-size: 13px;
-		font-weight: 400;
-	}
+// Card avatar
+//
+// Image / title block can be used for user based content in card layouts.
 
-	i {
-		position: relative;
-		top: -1px; // For optical center of drink icon
-		vertical-align: middle;
-		font-size: 14px;
+.card-avatar {
+	display: flex;
+	align-items: center;
+	margin: grid-unit(2);
+}
+
+.card-avatar__image {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	background-color: #ccc;
+	overflow: hidden;
+}
+
+.card-avatar__title {
+	padding-left: grid-unit(2);
+}
+
+.card-avatar__image,
+.card-avatar__title {
+	display: inline-block;
+}
+
+
+.card-avatar__primary-text,
+.card-avatar__subtext {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.card-avatar__subtext {
+	color: rgba(0, 0, 0, .54)
+}
+
+
+// Card title
+//
+// Usefull when constructing cards as content blocks. Creates a primay title for the card
+// requires the use of type classes (headling and body-1) on its children.
+//
+//  Markup:
+//  <div class="card-title">
+//      <div class="card-title__primary-text  type--headline">Title goes here</div>
+//      <div class="card-title__subtext  type--body-1">Subtitle here</div>
+//  </div>
+
+.card-title {
+	margin: grid-unit(3) grid-unit(2);
+}
+
+.card-title__primary-text {
+	padding-bottom: grid-unit(1.5);
+}
+
+.card-title__subtext {
+	color: rgba(0, 0, 0, .54);
+}
+
+.card-title__primary-text,
+.card-title__subtext {
+	line-height: 1;
+}
+
+
+.card__supporting-text {
+	margin: grid-unit(2);
+
+	&:last-child {
+		margin-bottom: grid-unit(3);
+
 	}
 }
 
+
+
+// Card actions
+//
+// Actions for card items can be buttons or icons, inline or stacked.
+//
+// .card-actions--align-right  - aligns actions to the right
+
+.card-actions {
+	margin: grid-unit(1);
+}
+
+.card-actions--align-right {
+	text-align: right;
+}
+
+
+.card--actions__action {
+	padding-right: grid-unit(1);
+	padding-left: grid-unit(1);
+}

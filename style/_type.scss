@@ -126,17 +126,16 @@ $tracking-20: tracking(20);
 // These class modify type to be used as body copy
 
 .type--body-2 {
-  @extend %medium-weight;
   line-height: 24px;
 }
 
 .type--body-1 {
-  @extend %regular-weight;
   line-height: 20px;
 }
 
 .type--body-2,
 .type--body-1 {
+  @extend %regular-weight;
   @extend %color-87;
   font-size: 13px;
   letter-spacing: $tracking-10;

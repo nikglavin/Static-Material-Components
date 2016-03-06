@@ -5,6 +5,7 @@
 // TODO: Add JS Ripple on click
 // TODO: Refactor to allow color modifiers based on material design color guidlines
 // TODO: Improve quality of paper shadow
+// TODO: Add styles for button--icon (Extend it from button so it inherits focus/hover...etc)
 $button-border-radius: 2px;
 $button-color: color(primary);
 $button-text-color: rgba(255, 255, 255, .87);
@@ -91,6 +92,19 @@ $button-easing: $transition-timing;
     box-shadow: none;
   }
 }
+
+.button--icon {
+  display: inline-block;
+  padding: grid-unit(1);
+  margin-top: grid-unit(-.5);
+  margin-bottom: grid-unit(-.5);
+
+  + .button--icon {
+    margin-left: grid-unit(1);
+  }
+
+}
+
 
 .button__focus {
   display: none;
