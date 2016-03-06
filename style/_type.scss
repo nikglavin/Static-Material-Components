@@ -33,9 +33,10 @@ $tracking-20: tracking(20);
 // Margins settings for type modifiers
 // This aims to known combinations of type modifiers
 
-[class^="type--"] {
+[class^="type--"]:not(:only-child) {
   margin-top: .75em;
   margin-bottom: .5em;
+
 }
 
 

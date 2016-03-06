@@ -1,7 +1,8 @@
 // Cards
 //
 // TODO: Create color map for shades
-// TODO: Create type--body-3 ? With tighter line height and move styles from card-avatar there .
+// TODO: Create type--body-3 ? With tighter line height and move styles from card-avatar there.
+// TODO: Add case for extra padding bottom on card-title ? some times it needs 24px not 6 :S ?
 
 $card-resting: paper(1);
 $card-raised: paper(2);
@@ -70,7 +71,10 @@ $card-raised: paper(2);
 //  </div>
 
 .card-title {
-	margin: grid-unit(3) grid-unit(2);
+	margin-top: grid-unit(3);
+	margin-right: grid-unit(2);
+	margin-bottom: grid-unit(2);
+	margin-left: grid-unit(2);
 }
 
 .card-title__primary-text {
@@ -97,7 +101,6 @@ $card-raised: paper(2);
 }
 
 
-
 // Card actions
 //
 // Actions for card items can be buttons or icons, inline or stacked.
@@ -113,7 +116,34 @@ $card-raised: paper(2);
 }
 
 
-.card--actions__action {
+.card-actions__action {
 	padding-right: grid-unit(1);
 	padding-left: grid-unit(1);
+}
+
+// Card Media
+// Images used within cards
+
+.card-media {
+  position: relative;
+}
+
+.card-media__overlay {
+	display: flex;
+	align-items: flex-end;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.57));
+
+	* {
+		color: #fff;
+	}
+}
+
+.card-media__overlay--block {
+	display: block;
+	top: auto;
+	background-color: rgba(0,0,0,.54);
 }
