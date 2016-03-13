@@ -1,5 +1,6 @@
 // Common properties
 // Below are some simple extends for shared properties to keep the output as terse and try as possible.
+// TODO: color transparency needs to be moved to a map.
 
 $tracking-5: tracking(5);
 $tracking-10: tracking(10);
@@ -29,16 +30,13 @@ $tracking-20: tracking(20);
   }
 }
 
-
 // Margins settings for type modifiers
 // This aims to known combinations of type modifiers
 
 [class^="type--"]:not(:only-child) {
   margin-top: .75em;
   margin-bottom: .5em;
-
 }
-
 
 // Display type modifiers
 // Extra large text used for call out or feature text. 4 being the largest text and 1 being the smallest
@@ -90,9 +88,9 @@ $tracking-20: tracking(20);
 }
 
 .type--title {
-    @extend %medium-weight;
-	font-size: 20px;
-    letter-spacing: $tracking-5;
+  @extend %medium-weight;
+  font-size: 20px;
+  letter-spacing: $tracking-5;
 }
 
 .type--subheading-2 {
@@ -121,7 +119,6 @@ $tracking-20: tracking(20);
 .type--subheading-1 {
   @extend %color-87;
 }
-
 
 // Paragraph modifiers
 // These class modify type to be used as body copy

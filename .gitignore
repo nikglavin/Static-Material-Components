@@ -1,6 +1,6 @@
 #SCSS output
-
-*/.sass-cache/*
+.sass-cache/*
+style/.sass-cache/*
 *.css
 *.map
 
