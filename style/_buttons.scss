@@ -96,8 +96,8 @@ $button-easing: $transition-timing;
 .button--icon {
   display: inline-block;
   padding: grid-unit(1);
-  margin-top: grid-unit(-.5);
-  margin-bottom: grid-unit(-.5);
+  margin-top: grid-unit(-.25);
+  margin-bottom: grid-unit(-.25);
 
   + .button--icon {
     margin-left: grid-unit(1);

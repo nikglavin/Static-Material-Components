@@ -28,11 +28,21 @@ $tracking: (
   @return map-get($tracking, $key);
 }
 
+
+// The following box-shadow settings originate from getmdl.io
+$shadow-key-umbra-opacity: .2;
+$shadow-key-penumbra-opacity: .14;
+$shadow-ambient-shadow-opacity: .12;
+
 $paper: (
-  4: (0 14px 45px rgba(0, 0, 0, 0.25), 0 10px 18px rgba(0, 0, 0, 0.22)),
-  3: (0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23)),
-  2: (0 3px 10px rgba(0, 0, 0, 0.16), 0 3px 10px rgba(0, 0, 0, 0.23)),
-  1: (0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24)),
+  1: (0px 2px 1px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0px 1px 1px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0px 1px 3px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity)),
+  2: (0px 3px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0px 2px 2px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0px 1px 5px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity)),
+  3: (0px 3px 3px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0px 3px 4px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0px 1px 8px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity)),
+  4: (0px 2px 4px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0px 4px 5px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0px 1px 10px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity)),
+  5: (0px 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0px 5px 8px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0px 1px 14px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity)),
+  6: (0px 3px 5px -1px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0px 6px 10px 0px rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0px 1px 18px 0px rgba(0, 0, 0, $shadow-ambient-shadow-opacity)),
+  7: (0px 4px 5px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0px 7px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0px 2px 16px 1px rgba(0, 0, 0, $shadow-ambient-shadow-opacity)),
+  8: (0px 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0px 8px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0px 3px 14px 2px rgba(0, 0, 0, $shadow-ambient-shadow-opacity))
 );
 
 @function paper($key) {
