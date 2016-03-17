@@ -1,0 +1,85 @@
+.list {
+  margin: 0;
+  padding: grid-unit(1) 0;
+}
+
+.list--single-line {
+  .list__item {
+    line-height: grid-unit(6);
+  }
+}
+
+.list--single-line-avatar {
+  .list__item {
+    line-height: grid-unit(7);
+  }
+}
+
+.list--two-line {
+  .list__item {
+    padding-top: grid-unit(2.5);
+    padding-bottom: grid-unit(2.5);
+    line-height: 16px;
+  }
+}
+
+// TODO: This component should probably use nested flexbox improve its scalability.
+.list--three-line {
+  .list__item {
+    height: grid-unit(11);
+  }
+  .list__action {
+    margin-top: grid-unit(-1);
+  }
+
+  .list__action,
+  .list__action-end {
+    i {
+      margin-top: grid-unit(-2);
+    }
+  }
+
+  .list__time-since + .list__action-end {
+    align-self: flex-end;
+    margin-bottom: 0;
+  }
+}
+
+.list__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-right: grid-unit(2);
+  padding-left: grid-unit(2);
+  font-size: 16px;
+}
+
+.list__subheading {
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, .57)
+}
+
+.list__action {
+  flex-basis: grid-unit(7);
+  min-width: grid-unit(7);
+}
+
+.list__action-end {
+  margin: grid-unit(-2);
+  margin-left: auto;
+  padding: grid-unit(2);
+}
+
+.list__time-since {
+  position: absolute;
+  top: grid-unit(2.5);
+  right: grid-unit(2);
+  line-height: 1;
+}
+
+.list__avatar {
+  margin-top: grid-unit(-.5);
+  margin-bottom: grid-unit(-.5);
+}
