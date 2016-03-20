@@ -68,9 +68,6 @@ body {
   letter-spacing: .01em;
   font-family: 'Roboto', sans-serif;
   color: #212121;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 a {
@@ -98,6 +95,7 @@ ul {
 @import "dialogs";
 @import "data-tables";
 @import "lists";
+@import "dividers";
 @import "iconLists";
 
 // Page Specific Styles.

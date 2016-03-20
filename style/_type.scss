@@ -30,6 +30,13 @@ $tracking-20: tracking(20);
   }
 }
 
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 // Margins settings for type modifiers
 // This aims to known combinations of type modifiers
 

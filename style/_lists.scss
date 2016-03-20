@@ -1,3 +1,11 @@
+.list-title {
+  margin-left: grid-unit(9);
+}
+
+.list-title + .list {
+  padding-top: 0;
+}
+
 .list {
   margin: 0;
   padding: grid-unit(1) 0;
@@ -12,6 +20,21 @@
 .list--single-line-avatar {
   .list__item {
     line-height: grid-unit(7);
+  }
+}
+
+// TODO: Consider better naming for this as it use primarily to when applying a partial divider
+.list--primary-action {
+  .list__item {
+    margin-left: grid-unit(9);
+    padding-left: 0;
+  }
+
+  .list__action {
+    flex-basis: grid-unit(9);
+    min-width: grid-unit(9);
+    margin-left: grid-unit(-9);
+    padding-left: grid-unit(2);
   }
 }
 
