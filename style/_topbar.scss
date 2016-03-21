@@ -1,23 +1,22 @@
 .topBar {
+	display: flex;
+	align-items: center;
 	position: relative;
 	background-color: color(primary);
-	padding-top: grid-unit(2);
-	padding-bottom: grid-unit(2);
-	padding-left: grid-unit(9);
+	padding-right: grid-unit(1);
+	padding-left: grid-unit(1);
 	height: grid-unit(7);
-	color: #fff;
-}
 
-.topBar__action--left,
-.topBar__action--right {
-	position: absolute;
-	top: grid-unit(2);
+	* {
+		color: #fff;
+	}
 }
 
 .topBar__action--left {
-	left: grid-unit(2);
+	flex-basis: grid-unit(8);
+	min-width: grid-unit(8  );
 }
 
 .topBar__action--right {
-	right: grid-unit(2);
+	margin-left: auto;
 }
