@@ -92,21 +92,19 @@ ul {
 // Material Design Components.
 
 @import "type";
-@import "buttons";
 @import "paper";
-@import "topbar";
+
+@import "buttons";
+@import "topbars";
 @import "cards";
 @import "floatingActions";
-@import "bars";
 @import "dialogs";
 @import "data-tables";
 @import "lists";
 @import "dividers";
-@import "iconLists";
 
 // Page Specific Styles.
 
-@import "reportModal";
 
 .mobileWrap {
   position: relative;
@@ -120,21 +118,6 @@ ul {
 .mobileWrap__statusBar {
   background-color: #00897B; // Should be rgba pos-a
   height: 24px;
-}
-
-.content {
-  height: 587px;
-  overflow-y: auto;
-}
-
-.pageAction--email,
-.pageAction--add {
-  right: grid-unit(2);
-  bottom: grid-unit(2);
-}
-
-.pageAction--email {
-  bottom: grid-unit(11);
 }
 
 
