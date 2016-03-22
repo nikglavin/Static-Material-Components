@@ -9,14 +9,21 @@ $baseline: 8px;
 }
 
 $colors: (
-        primary: #009688,
-        secondary: #000
+  primary: #009688,
+  secondary: #000
 );
 
 @function color($key) {
   @return map-get($colors, $key);
 }
 
+$z-level: (
+  dialog: 10
+);
+
+@function z-level($key) {
+  @return map-get($z-level, $key);
+}
 
 $tracking: (
   5: .0125em,
@@ -27,7 +34,6 @@ $tracking: (
 @function tracking($key) {
   @return map-get($tracking, $key);
 }
-
 
 // The following box-shadow settings originate from getmdl.io
 $shadow-key-umbra-opacity: .2;
@@ -49,7 +55,7 @@ $paper: (
   @return map-get($paper, $key);
 }
 
-$transition-timing: cubic-bezier(.4,0,1,1);
+$transition-timing: cubic-bezier(.4, 0, 1, 1);
 
 *,
 *:before,

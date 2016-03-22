@@ -1,42 +1,62 @@
+// TODO: Overflow modal needs some js voodo to add border to header when scrolling
+// TODO: Full screen modal layouts
+
 .dialog {
-	display: flex;
-	align-items: center;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	background-color: rgba(0,0,0, .55);
-	padding: grid-unit(3) grid-unit(5);
-
-	p,
-	li { color: rgba(0,0,0, .54); }
-}
-
-.dialog__modal {
-	border-radius: 2px;
-	background-color: #fff;
-	min-width: grid-unit(35);
-	width: 100%;
-}
-
-.dialog__contentArea {
-	padding: grid-unit(3);
-
-	p:last-of-type { margin-bottom: 0; }
+  position: relative;
+  left: 50%;
+  z-index: z-level(dialog);
+  transform:  translateX(-50%);
+  min-width: grid-unit(35);
+  border-radius: 2px;
+  background-color: #fff;
 }
 
 .dialog__title {
-	margin-bottom: grid-unit(2.5);
-	font-weight: 500; //Rather add additional type style.
+  padding-top: grid-unit(3);
+  padding-right: grid-unit(3);
+  padding-bottom: grid-unit(2.5);
+  padding-left: grid-unit(3);
+
+  & + .dialog__contentArea {
+    padding-top: 0;
+    padding-bottom: grid-unit(2);
+  }
+}
+
+.dialog__contentArea {
+  padding: grid-unit(3);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    color: rgba(0, 0, 0, .54);
+  }
+}
+
+// TODO: Should be mobile only add media query
+.dialog__contentArea--overflow {
+  overflow-y: scroll;
 }
 
 .dialog__actionArea {
-	padding: grid-unit(1);
-	text-align: right;
+  padding: grid-unit(1);
+  text-align: right;
 }
 
-.dialog__action {
-	padding-right: grid-unit(1) !important; // Important required or requires on cascade for button inheritance.
-	padding-left: grid-unit(1) !important;
+.dialog__actionArea--stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 0;
+}
+
+.dialog-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .57);
 }

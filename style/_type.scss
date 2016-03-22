@@ -30,7 +30,6 @@ $tracking-20: tracking(20);
   }
 }
 
-
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -43,6 +42,18 @@ body {
 [class^="type--"]:not(:only-child) {
   margin-top: .75em;
   margin-bottom: .5em;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+[class^="type--"]:only-child {
+  margin: 0;
 }
 
 // Display type modifiers
