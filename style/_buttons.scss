@@ -1,27 +1,26 @@
 // Core button styles
 //
-// Shared accross default button and floating action buttons
+// Shared across default button and floating action buttons
 //
 // TODO: Add JS Ripple on click
-// TODO: Refactor to allow color modifiers based on material design color guidlines
 // TODO: Improve quality of paper shadow
 // TODO: Add styles for button--icon (Extend it from button so it inherits focus/hover...etc)
+
 $button-border-radius: 2px;
-$button-color: color(primary);
-$button-text-color: rgba(255, 255, 255, .87);
+$button-color: color(secondary);
+$button-text-color: color(white);
 $button-text-weight: 500;
 $button-tracking: tracking(10);
 
-$button-shadow-1: paper(1);
-$button-shadow-2: paper(2);
-$button-shadow-3: paper(3);
+$button-shadow-resting: paper(1);
+$button-shadow-hover: paper(2);
+$button-shadow-active: paper(3);
 
 $button-easing: $transition-timing;
 
-
 %button-core {
   position: relative;
-  z-index: 2;
+  z-index: z-level(button);
   outline: 0;
   border: 0;
   background-color: $button-color;
@@ -43,11 +42,11 @@ $button-easing: $transition-timing;
   }
 
   &:hover {
-    box-shadow: $button-shadow-2;
+    box-shadow: $button-shadow-hover;
   }
 
   &:active {
-    box-shadow: $button-shadow-3;
+    box-shadow: $button-shadow-active;
   }
 }
 
@@ -69,11 +68,11 @@ $button-easing: $transition-timing;
   padding-left: grid-unit(2);
   min-width: grid-unit(8);
   line-height: grid-unit(4.5);
-  box-shadow: $button-shadow-1;
+  box-shadow: $button-shadow-resting;
   overflow: hidden;
 
   + .button {
-    margin-left: 8px;
+    margin-left: grid-unit(1);
   }
 }
 
@@ -84,7 +83,7 @@ $button-easing: $transition-timing;
   transition: none;
 
   &:focus {
-    background-color: rgba(0, 0, 0, .12);
+    background-color: rgba(color(secondary, tint), .12);
   }
 
   &:hover,
@@ -104,7 +103,6 @@ $button-easing: $transition-timing;
   + .button--icon {
     margin-left: grid-unit(1);
   }
-
 }
 
 
@@ -121,12 +119,12 @@ $button-easing: $transition-timing;
     margin: auto;
     border-radius: 50%;
     padding-top: 140%;
-    background-color: rgba(255, 255, 255, .12);
+    background-color: color(white, tint);
     animation: focus 3s infinite;
   }
 
   .button--flat:focus & {
-     background-color: rgba(255, 255, 255, .24);
+     background-color: color(white, tone);
   }
 }
 
@@ -155,12 +153,12 @@ $button-easing: $transition-timing;
   display: block;
   position: absolute;
   margin: grid-unit(2);
-  box-shadow: $button-shadow-1;
+  box-shadow: $button-shadow-resting;
   border-radius: 50%;
   background-color: $button-color;
-  width: 56px;
+  width: grid-unit(7);
   text-align: center;
-  line-height: 56px;
+  line-height: grid-unit(7);
   color: $button-text-color;
 
   i {
@@ -169,6 +167,6 @@ $button-easing: $transition-timing;
 }
 
 .button-fab--mini {
-  width: 40px;
-  line-height: 40px;
+  width: grid-unit(5);
+  line-height: grid-unit(5);
 }

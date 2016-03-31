@@ -42,7 +42,7 @@
   .list__item {
     padding-top: grid-unit(2.5);
     padding-bottom: grid-unit(2.5);
-    line-height: 16px;
+    line-height: grid-unit(2);
   }
 }
 
@@ -80,8 +80,8 @@
 
 .list__subheading {
   font-size: 14px;
-  line-height: 16px;
-  color: rgba(0, 0, 0, .57)
+  line-height: grid-unit(2);
+  color: color(black, shade);
 }
 
 .list__action {

@@ -8,13 +8,13 @@
 	height: grid-unit(7);
 
 	* {
-		color: #fff;
+		color: color(white);
 	}
 }
 
 .topBar__action--left {
 	flex-basis: grid-unit(8);
-	min-width: grid-unit(8  );
+	min-width: grid-unit(8);
 }
 
 .topBar__action--right {

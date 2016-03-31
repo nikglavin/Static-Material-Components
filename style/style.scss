@@ -1,14 +1,12 @@
-// Setup
-//
-// Environment setup for codepen.
-
-
 // Grid unit
+//
 // Used to help enforce consistency of vertical rhythm across components
 //
 // $multiplier: Number of grid units
 // $offset: Number used to offset grid units when items fall outside the box-model height ie (border)
-// @return PX value
+//
+// Usage:
+// padding: grid-unit(2);
 
 $baseline: 8px;
 
@@ -16,22 +14,87 @@ $baseline: 8px;
   @return ($multiplier * $baseline) + $offset;
 }
 
+
+// Color pallet
+//
+// The color map should be a collection of maps. Each color map should be monochromatic, and have the following keys
+// when appropriate.
+//
+// $palette: Sting name for color map
+// $tone: String name following monochromatic color schema
+//
+// hue: Base color
+// tint: Lightened variation (mixed with white)
+// tone: Darker variation (mixed with a grey)
+// shade: Darkest variation (mixed with black)
+//
+// Usage:
+// background-color: color(primary);
+// background-color: color(primary, tint);
+
 $colors: (
-  primary: #009688,
-  secondary: #000
+  primary: (
+    hue: #3f51b5,
+    tint: #c5cae9,
+    tone: #3f51b5,
+    shade: #303f9f
+  ),
+  secondary: (
+    hue: #ff4081,
+    tint: #ff80ab,
+    tone: #f50057
+  ),
+  black: (
+    hue: rgba(0, 0, 0, .87),
+    tint: rgba(0, 0, 0, .12),
+    tone: rgba(0, 0, 0, .24),
+    shade: rgba(0, 0, 0, .54)
+  ),
+  white: (
+    hue: rgba(255, 255, 255, .87),
+    tint: rgba(255, 255, 255, .12),
+    tone: rgba(255, 255, 255, .24),
+    shade: rgba(255, 255, 255, .54)
+  ),
+  error: (
+    hue: #dd040d
+  ),
+  success: (
+    hue: #28945e
+  )
 );
 
-@function color($key) {
-  @return map-get($colors, $key);
+@function color($palette, $tone: hue) {
+  @return map-get(map-get($colors, $palette), $tone);
 }
 
+
+// Z Level
+//
+// Provides a site wide overview of z levels. Each component must be added to the $z-level map with its assigned index.
+// The item must then be referenced by name (see usage below).
+//
+// $key: String name of component
+//
+// Usage:
+// z-index: z-level(dialog);
+
 $z-level: (
-  dialog: 10
+  dialog: 10,
+  button: 2
 );
 
 @function z-level($key) {
   @return map-get($z-level, $key);
 }
+
+// Tracking
+//
+// TODO: move this to type as it probably doesn't need to be global... ?
+// TODO: make this a mixin as it should only be used on a single attribute
+//
+// Usage:
+// letter-spacing: tracking(5);
 
 $tracking: (
   5: .0125em,
@@ -43,7 +106,17 @@ $tracking: (
   @return map-get($tracking, $key);
 }
 
-// The following box-shadow settings originate from getmdl.io
+
+// Paper level
+//
+// The following box-shadow settings originate from getmdl.io, as my box-shadow skills appear to be low.
+// Adds paper depth to any block element (higher values = bigger shadow).
+//
+// $level: Number height from page
+//
+// Usage:
+// box-shadow: paper(2);
+
 $shadow-key-umbra-opacity: .2;
 $shadow-key-penumbra-opacity: .14;
 $shadow-ambient-shadow-opacity: .12;
@@ -59,11 +132,16 @@ $paper: (
   8: (0px 5px 5px -3px rgba(0, 0, 0, $shadow-key-umbra-opacity), 0px 8px 10px 1px rgba(0, 0, 0, $shadow-key-penumbra-opacity), 0px 3px 14px 2px rgba(0, 0, 0, $shadow-ambient-shadow-opacity))
 );
 
-@function paper($key) {
-  @return map-get($paper, $key);
+@function paper($level) {
+  @return map-get($paper, $level);
 }
 
+// Transition / Animation timing and duration
+
 $transition-timing: cubic-bezier(.4, 0, 1, 1);
+
+// Temp reset
+// TODO: Consider using normalize.
 
 *,
 *:before,
@@ -105,28 +183,8 @@ ul {
 @import "buttons";
 @import "topbars";
 @import "cards";
-@import "floatingActions";
 @import "dialogs";
 @import "dataTables";
 @import "lists";
 @import "dividers";
 @import "textFields";
-
-// Page Specific Styles.
-
-
-.mobileWrap {
-  position: relative;
-  margin: 8px auto 0;
-  width: 375px;
-  height: 667px;
-  overflow: hidden;
-  border: 1px solid #ccc;
-}
-
-.mobileWrap__statusBar {
-  background-color: #00897B; // Should be rgba pos-a
-  height: 24px;
-}
-
-

@@ -13,7 +13,7 @@ $card-raised: paper(6);
   margin: grid-unit(1);
   box-shadow: $card-resting;
   border-radius: 3px;
-  border: 1px solid #ccc;
+  border: 1px solid color(black, tint);
 
   &:first-of-type {
     margin-top: 0;
@@ -21,7 +21,7 @@ $card-raised: paper(6);
 }
 
 .card--mono-dark * {
-  color: #fff;
+  color: color(white);
 }
 
 // Card avatar
@@ -36,9 +36,9 @@ $card-raised: paper(6);
 
 .card-avatar__image {
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  background-color: #ccc;
+  width: grid-unit(4.5);
+  height: grid-unit(4.5);
+  background-color: color(black, tint);
   overflow: hidden;
 }
 
@@ -58,18 +58,18 @@ $card-raised: paper(6);
 }
 
 .card-avatar__subtext {
-  color: rgba(0, 0, 0, .54)
+  color: color(black, shade);
 }
 
 // Card title
 //
-// Usefull when constructing cards as content blocks. Creates a primay title for the card
-// requires the use of type classes (headling and body-1) on its children.
+// Useful when constructing cards as content blocks. Creates a primary title for the card
+// requires the use of type classes (heading and body-1) on its children.
 //
 //  Markup:
 //  <div class="card-title">
-//      <div class="card-title__primary-text  type--headline">Title goes here</div>
-//      <div class="card-title__subtext  type--body-1">Subtitle here</div>
+//    <div class="card-title__primary-text  type--headline">Title goes here</div>
+//    <div class="card-title__subtext  type--body-1">Subtitle here</div>
 //  </div>
 
 .card-title {
@@ -84,7 +84,7 @@ $card-raised: paper(6);
 }
 
 .card-title__subtext {
-  color: rgba(0, 0, 0, .54);
+  color: color(black, shade);
 }
 
 .card-title__primary-text,
@@ -113,10 +113,9 @@ $card-raised: paper(6);
 }
 
 .card-actions--divider {
-  border-top: 1px solid rgba(0, 0, 0, .18);
+  border-top: 1px solid color(black, tint);
   margin: 0;
-  padding: 8px;
-  padding-top: 7px;
+  padding: grid-unit(1, 1) grid-unit(1) grid-unit(1);
 }
 
 .card-actions--overlay {
@@ -156,15 +155,15 @@ $card-raised: paper(6);
   top: 0;
   bottom: 0;
   width: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .57));
+  background: linear-gradient(transparent, color(black, shade));
 
   * {
-    color: #fff;
+    color: color(white);
   }
 }
 
 .card-media__overlay--block {
   display: block;
   top: auto;
-  background-color: rgba(0, 0, 0, .54);
+  background-color: color(black, shade);
 }

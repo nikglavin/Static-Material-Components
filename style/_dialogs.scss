@@ -12,10 +12,7 @@
 }
 
 .dialog__title {
-  padding-top: grid-unit(3);
-  padding-right: grid-unit(3);
-  padding-bottom: grid-unit(2.5);
-  padding-left: grid-unit(3);
+  padding: grid-unit(3) grid-unit(3) grid-unit(2.5);
 
   & + .dialog__contentArea {
     padding-top: 0;
@@ -31,7 +28,7 @@
   }
 
   p {
-    color: rgba(0, 0, 0, .54);
+    color: color(black, shade);
   }
 }
 
@@ -58,5 +55,5 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, .57);
+  background-color: color(black, shade);
 }
