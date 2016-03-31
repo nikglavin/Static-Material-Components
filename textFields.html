@@ -1,0 +1,113 @@
+<html>
+<head>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/style.css"/>
+    <style>
+        body {
+            padding: 36px;
+        }
+
+        .example {
+            margin-bottom: 24px;
+            position: relative;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<h1 class="type--display-1">Single-line text field</h1>
+<h2 class="type--title">Standard</h2>
+
+<div class="textField">
+    <input class="textField__input  type--subheading-1" type="text" id="textField" placeholder="Full Name"/>
+    <label class="textField__label" for="textField"> </label>
+</div>
+
+<div class="textField">
+    <input class="textField__input  type--subheading-1" type="text" disabled id="textField" placeholder="Disabled"/>
+    <label class="textField__label" for="textField"> </label>
+</div>
+
+<div class="textField textField--error">
+    <input class="textField__input  type--subheading-1" type="text" required="required" id="textField" placeholder="Email Address"/>
+    <label class="textField__label type--subheading-1" for="textField"></label>
+    <div class="textField__helperText">Username or password is incorrect</div>
+</div>
+
+<div class="textField textField--persistentText">
+    <input class="textField__input  type--subheading-1" type="text" required="required" id="textField" placeholder="Username"/>
+    <label class="textField__label type--subheading-1" for="textField"></label>
+    <div class="textField__helperText">Your username is your email address </div>
+</div>
+
+<h2 class="type--title">Icon</h2>
+
+<div class="textField textField--icon">
+    <input class="textField__input  type--subheading-1" type="text" required="required" id="textField" placeholder="Phone"/>
+    <label class="textField__label" for="textField"> </label>
+    <i class="textField__icon  material-icons">phone</i>
+</div>
+
+<div class="textField textField--icon">
+    <input class="textField__input  type--subheading-1" type="text" required="required" disabled id="textField" placeholder="Phone"/>
+    <label class="textField__label" for="textField"> </label>
+    <i class="textField__icon  material-icons">phone</i>
+</div>
+
+<div class="textField textField--icon textField--error">
+    <input class="textField__input  type--subheading-1" type="text" required="required" id="textField" placeholder="Email Address"/>
+    <label class="textField__label type--subheading-1" for="textField"></label>
+    <div class="textField__helperText">Username or password is incorrect</div>
+    <i class="textField__icon  material-icons">phone</i>
+</div>
+
+<div class="textField textField--icon textField--persistentText">
+    <input class="textField__input  type--subheading-1" type="text" required="required" id="textField" placeholder="Username"/>
+    <label class="textField__label type--subheading-1" for="textField"></label>
+    <div class="textField__helperText">Your username is your email address </div>
+    <i class="textField__icon  material-icons">phone</i>
+</div>
+
+<h2 class="type--title">Floating Label</h2>
+
+<div class="textField textField--floatingLabel">
+    <input class="textField__input  type--subheading-1" type="text" required="required" id="textField"/>
+    <label class="textField__label type--subheading-1" for="textField">Label Text</label>
+</div>
+
+<div class="textField textField--floatingLabel">
+    <input class="textField__input  type--subheading-1" type="text" required="required" value="Input text" id="textField"/>
+    <label class="textField__label type--subheading-1" for="textField">Label Text</label>
+</div>
+
+<div class="textField textField--floatingLabel">
+    <input class="textField__input  type--subheading-1" type="text" required="required" disabled value="Disabled input" id="textField"/>
+    <label class="textField__label type--subheading-1" for="textField">Disabled Label</label>
+</div>
+
+<div class="textField textField--floatingLabel textField--error">
+    <input class="textField__input  type--subheading-1" type="text" required="required" id="textField" value="Input text"/>
+    <label class="textField__label type--subheading-1" for="textField">Label Text</label>
+    <div class="textField__helperText">Username or password is incorrect</div>
+</div>
+
+<div class="textField textField--floatingLabel textField--persistentText">
+    <input class="textField__input  type--subheading-1" type="text" required="required" id="textField" value="Input text"/>
+    <label class="textField__label type--subheading-1" for="textField">Label Text</label>
+    <div class="textField__helperText">Username or password is incorrect</div>
+</div>
+
+<h1 class="type--display-1">Multi-line text field</h1>
+
+<div>
+    <div class="textField textField--floatingLabel textField--persistentText">
+        <textarea class="textField__input  type--subheading-1" type="text" rows="3" id="textField">The woodman set to work at once, and so sharp was his axe that the tree was soon chopped nearly through.</textarea>
+
+        <label class="textField__label type--subheading-2" for="textField">Description</label>
+        <div class="textField__helperText textField__helperText--charCount">55 / 150</div>
+    </div>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>

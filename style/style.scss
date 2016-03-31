@@ -2,10 +2,18 @@
 //
 // Environment setup for codepen.
 
+
+// Grid unit
+// Used to help enforce consistency of vertical rhythm across components
+//
+// $multiplier: Number of grid units
+// $offset: Number used to offset grid units when items fall outside the box-model height ie (border)
+// @return PX value
+
 $baseline: 8px;
 
-@function grid-unit($multiplier) {
-  @return $multiplier * $baseline;
+@function grid-unit($multiplier, $offset: 0) {
+  @return ($multiplier * $baseline) + $offset;
 }
 
 $colors: (
@@ -99,9 +107,10 @@ ul {
 @import "cards";
 @import "floatingActions";
 @import "dialogs";
-@import "data-tables";
+@import "dataTables";
 @import "lists";
 @import "dividers";
+@import "textFields";
 
 // Page Specific Styles.
 

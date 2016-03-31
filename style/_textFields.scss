@@ -1,0 +1,180 @@
+// TODO: Write JS for textarea char count / grow by line.
+
+$inputWidth: 300px;
+
+$textFieldLabelHighlightColor: #03A9F4;
+$textFieldErrorHighlightColor: orangered;
+
+@mixin material-transition-defaults($duration:0.2s) {
+  transition-duration: $duration;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+%textFieldBorderHighlight {
+  visibility: visible;
+  left: 0;
+  width: 100%;
+}
+
+.textField {
+  position: relative;
+  margin: 0;
+  padding-top: grid-unit(2);
+  padding-bottom: grid-unit(1);
+  width: $inputWidth;
+  max-width: 100%;
+}
+
+.textField__input,
+.textField__label {
+  text-align: left;
+  width: 100%;
+  color: rgba(0, 0, 0, .54);
+}
+
+.textField__input {
+  display: block;
+  margin: 0;
+  outline: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .27);
+  background: transparent;
+  padding: 0 0 grid-unit(1, -1);
+
+  // TODO: These are crazy hacks to make the caret the selected color, need to be cross browser tested
+  color: $textFieldLabelHighlightColor;
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, .54);
+  -webkit-text-fill-color: transparent;
+
+  &::-webkit-input-placeholder,
+  &::-webkit-input-placeholder {
+    color: rgba(0, 0, 0, .54);
+    text-shadow: none;
+    -webkit-text-fill-color: initial;
+  }
+
+  &:not(textarea) {
+    line-height: 1;
+  }
+
+  &[disabled] {
+    border-bottom-style: dotted;
+
+    & + .textField__label {
+      color: rgba(0, 0, 0, .27);
+    }
+  }
+}
+
+.textField__label {
+  display: block;
+  position: absolute;
+  top: grid-unit(2.5);
+  bottom: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: none;
+  line-height: 1;
+
+  &:after {
+    visibility: hidden;
+    position: absolute;
+    left: 45%;
+    bottom: grid-unit(1);
+    background-color: $textFieldLabelHighlightColor;
+    width: 10px;
+    height: 2px;
+    content: '';
+    @include material-transition-defaults();
+  }
+}
+
+.textField__input:focus + .textField__label {
+  color: $textFieldLabelHighlightColor;
+
+  &:after {
+    @extend %textFieldBorderHighlight;
+  }
+}
+
+.textField__helperText {
+  font-size: 12px;
+}
+
+.textField__helperText--charCount {
+  text-align: right;
+}
+
+// Text Field with icon
+
+.textField--icon {
+  .textField__input,
+  .textField__label,
+  .textField__helperText {
+    width: calc(100% - 64px);
+    margin-left: grid-unit(8);
+  }
+
+  .textField__input:focus ~ .textField__icon {
+    color: $textFieldLabelHighlightColor;
+  }
+
+  .textField__icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: grid-unit(1.5);
+    color: rgba(0,0,0,.82);
+    transition: color;
+    @include material-transition-defaults();
+  }
+}
+
+// Text Field with floating label
+
+.textField--floatingLabel {
+  padding-top: grid-unit(3.75);
+
+  .textField__input {
+    padding-top: grid-unit(1);
+  }
+
+  .textField__label {
+    top: grid-unit(4.75);
+    @include material-transition-defaults();
+  }
+
+  .textField__input[disabled] + .textField__label,
+  .textField__input:focus + .textField__label,
+  .textField__input:valid + .textField__label {
+    visibility: visible;
+    top: grid-unit(2.25);
+    font-size: 12px;
+  }
+}
+
+// Text Field has error or persistentText
+
+.textField--error,
+.textField--persistentText {
+  .textField__label {
+    bottom: grid-unit(3);
+  }
+}
+
+.textField--error {
+  .textField__label:after {
+    @extend %textFieldBorderHighlight;
+    background-color: $textFieldErrorHighlightColor;
+  }
+
+  .textField__input:focus + .textField__label,
+  .textField__input:valid + .textField__label {
+    color: $textFieldErrorHighlightColor;
+  }
+
+  .textField__icon,
+  .textField__helperText {
+    color: $textFieldErrorHighlightColor;
+  }
+}
