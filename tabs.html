@@ -1,0 +1,94 @@
+<html>
+<head>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style/style.css"/>
+    <style>
+        body {
+            padding: 36px;
+        }
+
+        .example {
+            width: 360px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<h1 class="type--display-1">Tabs</h1>
+<h2 class="type--title">Fixed tabs</h2>
+<div class="example">
+    <div class="tab">
+        <nav class="tab__navigation" role="tablist">
+            <div class="tab__navigation-item tab__navigation-item--selected" role="tab">Item 1</div>
+            <div class="tab__navigation-item">Item 2</div>
+            <div class="tab__navigation-item">Item 3</div>
+            <div class="tab__navigation-item">Item 4</div>
+        </nav>
+    </div>
+</div>
+
+<div class="example">
+    <div class="tab">
+        <nav class="tab__navigation tab__navigation--icons" role="tablist">
+            <div class="tab__navigation-item tab__navigation-item--selected" role="tab">
+                <div class="tab__navigation-icon">
+                    <i class="material-icons">phone</i>
+                </div>
+                Recents
+            </div>
+            <div class="tab__navigation-item">
+                <div class="tab__navigation-icon">
+                    <i class="material-icons">favorite</i>
+                </div>
+                Favourites
+            </div>
+            <div class="tab__navigation-item">
+                <div class="tab__navigation-icon">
+                    <i class="material-icons">assistant</i>
+                </div>
+                Nearby
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="example">
+    <div class="tab">
+        <nav class="tab__navigation" role="tablist">
+            <div class="tab__navigation-item tab__navigation-item--selected" role="tab">
+                <i class="material-icons">phone</i>
+            </div>
+            <div class="tab__navigation-item">
+                <i class="material-icons">favorite</i>
+            </div>
+            <div class="tab__navigation-item">
+                <i class="material-icons">assistant</i>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<h2 class="type--title">Scrollable tabs</h2>
+<!-- TODO: Scrollable nav requires and additional element :? look into remove it -->
+<div class="example">
+    <div class="tab tab--scrollable">
+        <div class="tab__navigation-wrapper">
+            <nav class="tab__navigation" role="tablist">
+                <div class="tab__navigation-item tab__navigation-item--selected">Item 1</div>
+                <div class="tab__navigation-item">Item 2</div>
+                <div class="tab__navigation-item">Item 3</div>
+                <div class="tab__navigation-item">Item 4</div>
+                <div class="tab__navigation-item">Item 5</div>
+                <div class="tab__navigation-item">Item 5</div>
+                <div class="tab__navigation-item">Item 5</div>
+                <div class="tab__navigation-item">Item 5</div>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

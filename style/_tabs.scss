@@ -1,0 +1,54 @@
+// Tabs
+// TODO: Inverted color scheme.
+// TODO: Tab with nested items
+// TODO: Touch target animation
+
+.tab--scrollable {
+  .tab__navigation-wrapper {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab__navigation {
+    padding-left: grid-unit(9);
+  }
+}
+
+.tab__navigation {
+  display: table;
+  width:100%;
+  height: grid-unit(6);
+  background-color: color(primary);
+}
+
+.tab__navigation--icons {
+  height: grid-unit(9);
+}
+
+.tab__navigation-item {
+  display: table-cell;
+  vertical-align: middle;
+  min-width: grid-unit(9);
+  max-width: grid-unit(20);
+  padding-right: grid-unit(1.5);
+  padding-left: grid-unit(1.5);
+  text-align: center;
+  color: color(white, shade);
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 500;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+// TODO: Should have a seprate element for selected highlight rather than border so it can be animated.
+.tab__navigation-item--selected {
+  color: #fff;
+  border-bottom: 2px solid color(secondary);
+}
+
+.tab__navigation-icon {
+  margin-bottom: grid-unit(1);
+}
