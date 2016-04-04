@@ -2,11 +2,14 @@
 //
 // Used to help enforce consistency of vertical rhythm across components
 //
+// TODO: allow shorthand values while also maintaining offset eg: grid-unit(-1 -1 -10, 0 0 1) ?
+//
 // $multiplier: Number of grid units
 // $offset: Number used to offset grid units when items fall outside the box-model height ie (border)
 //
 // Usage:
-// padding: grid-unit(2);
+// padding: grid-unit(2); = 16px
+// padding: grid-unit(2,1); = 15px
 
 $baseline: 8px;
 
@@ -180,6 +183,7 @@ ul {
 @import "type";
 @import "paper";
 
+@import "chips";
 @import "buttons";
 @import "topbars";
 @import "cards";

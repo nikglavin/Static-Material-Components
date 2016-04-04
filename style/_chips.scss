@@ -1,0 +1,49 @@
+// Chips
+//
+// TODO: Open contact chip
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: grid-unit(4);
+  padding: grid-unit(1) grid-unit(1.5);
+  background-color: color(black, tint);
+}
+
+.chip--deletable:hover {
+  background-color: color(black, shade);
+
+  .chip__text,
+  .chip__remove {
+    color: color(white);
+  }
+}
+
+.chip__icon {
+  display: inline-block;
+  width: grid-unit(4);
+  overflow: hidden;
+  margin: grid-unit(-1) grid-unit(1) grid-unit(-1) grid-unit(-1.5);
+  border-radius: 50%;
+  background-color: color(primary);
+  line-height: grid-unit(4);
+  text-align: center;
+  color: color(white);
+}
+
+.chip__text,
+.chip__remove {
+  display: inline-block;
+  line-height: 1.3;
+}
+
+.chip__remove {
+  margin: grid-unit(-1) grid-unit(-1) grid-unit(-1) 0;
+  padding-right: grid-unit(.5);
+  padding-left: grid-unit(.5);
+  color: color(black, shade);
+
+  i {
+    font-size: 20px;
+  }
+}
